@@ -1,3 +1,15 @@
+:root {
+  --primary-color: #3462cc;
+  --primary-color-light: #376ce6;
+  --primary-color-dark: #19409b;
+  --secondary-color: #cc7334;
+  --background-color: #fffafa;
+  --yellow: #fafa04;
+  --pink: #b334cc;
+  --white: #eedede;
+  --black: #000000;
+}
+
 *,
 *::after,
 *::before {
@@ -11,6 +23,7 @@ html {
 }
 
 body {
+  background-color: var(--background-color);
   box-sizing: border-box;
   padding: 3rem;
 }

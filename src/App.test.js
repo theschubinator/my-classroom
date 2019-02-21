@@ -3,7 +3,18 @@ import React from 'react';
 
 import { render } from 'react-testing-library';
 
-it('renders without crashing', () => {
+describe('App', () => {
   const { unmount } = render(<App />);
-  unmount();
+
+  it('renders without crashing', () => {
+    unmount();
+  });
+
+  describe('the rendered elements', () => {
+    const { queryByTestId } = render(<App />);
+
+    it('should render the navBar', () => {
+      expect(queryByTestId('nav-header')).not.toBeNull();
+    });
+  });
 });
