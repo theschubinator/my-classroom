@@ -34,6 +34,7 @@
     "tcomb": "^3.2.29"
   },
   "dependencies": {
+    "node-sass": "^4.11.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-redux": "^6.0.1",
