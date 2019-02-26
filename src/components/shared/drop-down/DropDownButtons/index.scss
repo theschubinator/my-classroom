@@ -1,0 +1,73 @@
+.drop-down-btns {
+  position: relative;
+  text-align: center;
+  width: 10rem;
+  font-size: inherit;
+  padding: 0.5rem;
+  background-color: var(--primary-color);
+  box-shadow: 0 0 1.75rem var(--shadow);
+  border: 1px solid var(--black);
+
+  &.open {
+    .btn-options {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  &.closed {
+    .btn-options {
+      clip-path: inset(0 0 100% 0);
+    }
+  }
+
+  &:hover {
+    box-shadow: none;
+    background-color: var(--primary-color-dark);
+  }
+
+  .btn-options {
+    display: flex;
+    width: calc(10rem - 3px);
+    flex-direction: column;
+    position: absolute;
+    top: 34px;
+    left: 0.9px;
+    border-left: 1px solid var(--shadow);
+    border-right: 1px solid var(--shadow);
+    border-bottom: 1.5px solid var(--shadow);
+    border-bottom-left-radius: 5px 5px;
+    transition: clip-path 0.6s;
+    transition-timing-function: cubic-bezier(0.52, 0.01, 0.13, 0.99);
+
+    button {
+      background-color: var(--gray);
+      border: none;
+      padding: 0.4rem 0;
+      transition: all 0.4;
+
+      &:hover {
+        background-color: var(--primary-color-light);
+        color: var(--white);
+      }
+
+      &:last-child {
+        border-bottom-left-radius: 5px 5px;
+        border-bottom-right-radius: 5px 5px;
+
+        &:hover {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+}
+
+// INSTANCES
+
+.navbar-drop-down-btns {
+  background-color: var(--secondary-color-light);
+
+  &:hover {
+    background-color: var(--secondary-color);
+  }
+}

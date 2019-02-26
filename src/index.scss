@@ -2,12 +2,16 @@
   --primary-color: #3462cc;
   --primary-color-light: #376ce6;
   --primary-color-dark: #19409b;
-  --secondary-color: #cc7334;
+  --secondary-color: #d87935;
+  --secondary-color-light: #f1873a;
   --background-color: #fffafa;
   --yellow: #fafa04;
   --pink: #b334cc;
-  --white: #eedede;
+  --white: #fff;
+  --gray: #eee5e5;
   --black: #000000;
+  --shadow: rgba(0, 0, 0, 0.62);
+  --highlight: #f7f6ec;
 }
 
 *,
@@ -25,5 +29,9 @@ html {
 body {
   background-color: var(--background-color);
   box-sizing: border-box;
-  padding: 3rem;
+}
+
+main.App:nth-child(1) {
+  margin-top: 6rem;
+  padding: 5rem 3rem;
 }

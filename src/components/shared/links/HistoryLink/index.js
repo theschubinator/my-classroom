@@ -1,0 +1,47 @@
+import React from 'react';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import t from 'tcomb';
+
+import './index.scss';
+
+export const historyLinkTypes = {
+  btn: 'btn',
+  img: 'img'
+};
+
+export const HistoryLinkTypes = t.enums(historyLinkTypes, 'hiistoryLinkTypes');
+
+const HistoryLink = props => {
+  const handleClick = () => {
+    props.history.push(props.route);
+  };
+
+  const buttonLink = () => <button onClick={handleClick}>{props.title}</button>;
+
+  const imgLink = () => (
+    <img
+      data-testid={`link-${props.type}`}
+      src={props.src}
+      onClick={handleClick}
+      alt={props.alt}
+    >
+      {props.title}
+    </img>
+  );
+
+  const findLinkToRender = () => {
+    return props.type === 'btn' ? buttonLink() : imgLink();
+  };
+
+  return <div className={`link-${props.type}`}>{findLinkToRender()}</div>;
+};
+
+HistoryLink.propTypes = {
+  title: PropTypes.string,
+  type: PropTypes.string.isRequired,
+  route: PropTypes.string.isRequired,
+  src: PropTypes.string
+};
+
+export default withRouter(HistoryLink);

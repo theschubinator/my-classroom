@@ -4,17 +4,13 @@ import React from 'react';
 import { render } from 'react-testing-library';
 
 describe('App', () => {
-  const { unmount } = render(<App />);
-
   it('renders without crashing', () => {
+    const { unmount } = render(<App />);
     unmount();
   });
 
-  describe('the rendered elements', () => {
+  it('renders the navBar', () => {
     const { queryByTestId } = render(<App />);
-
-    it('should render the navBar', () => {
-      expect(queryByTestId('nav-header')).not.toBeNull();
-    });
+    expect(queryByTestId('nav-header')).toBeInTheDocument();
   });
 });

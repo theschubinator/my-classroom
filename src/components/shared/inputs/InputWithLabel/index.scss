@@ -1,0 +1,13 @@
+.input {
+  display: flex;
+
+  input {
+    border: inset 2.25px var(--gray);
+
+    &:focus {
+      background-color: var(--highlight);
+      outline: none;
+      border: inset 2.25px var(--gray);
+    }
+  }
+}

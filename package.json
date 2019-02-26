@@ -1,5 +1,11 @@
 {
   "name": "my-classroom",
+  "jest": {
+    "collectCoverageFrom": [
+      "**/src/**/*.{js}",
+      "!**/src/*.{js}"
+    ]
+  },
   "version": "0.1.0",
   "private": true,
   "repository": {
@@ -37,6 +43,7 @@
     "node-sass": "^4.11.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
+    "react-icons": "^3.4.0",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.5",
@@ -48,6 +55,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "coverage": "react-scripts test --coverage",
     "semantic-release": "semantic-release"
   }
 }
