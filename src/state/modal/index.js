@@ -1,11 +1,11 @@
 import t from 'tcomb';
 
 const Modal = t.struct({
-  type: t.String
+  modalType: t.String
 });
 
 export const getDefaultState = () => ({
-  type: ''
+  modalType: ''
 });
 
 export default Modal;

@@ -1,5 +1,5 @@
 import CreateExam from './teacher/CreateExam';
-import Modal from './shared/modals/modalConnector';
+import Modal from './shared/modals';
 import NavHeader from './NavHeader';
 import React from 'react';
 
@@ -9,8 +9,8 @@ const App = props => {
   return (
     <Router>
       <main className="App">
-        <NavHeader />
         <Modal />
+        <NavHeader />
         <Route exact path="/teacher/exam/new" component={CreateExam} />
       </main>
     </Router>

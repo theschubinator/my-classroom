@@ -11,6 +11,7 @@
   --gray: #eee5e5;
   --black: #000000;
   --shadow: rgba(0, 0, 0, 0.62);
+  --light-shadow: rgba(0, 0, 0, 0.288);
   --highlight: #f7f6ec;
 }
 
@@ -20,6 +21,7 @@
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  transition: filter 0.4s;
 }
 
 html {
