@@ -4,25 +4,22 @@
   width: 10rem;
   font-size: inherit;
   padding: 0.5rem;
-  background-color: var(--primary-color);
-  box-shadow: 0 0 1.75rem var(--shadow);
   outline: 1px solid var(--black);
 
   &.open {
+    background-color: var(--primary-color-dark);
+    box-shadow: none;
     .btn-options {
       clip-path: inset(0 0 0 0);
     }
   }
 
   &.closed {
+    background-color: var(--primary-color);
+    box-shadow: 0 0 1.75rem var(--shadow);
     .btn-options {
       clip-path: inset(0 0 100% 0);
     }
-  }
-
-  &:hover {
-    box-shadow: none;
-    background-color: var(--primary-color-dark);
   }
 
   .btn-options {
@@ -62,9 +59,11 @@
 // INSTANCES
 
 .navbar-drop-down-btns {
-  background-color: var(--secondary-color-light);
+  &.closed {
+    background-color: var(--secondary-color-light);
+  }
 
-  &:hover {
+  &.open {
     background-color: var(--secondary-color);
   }
 }
