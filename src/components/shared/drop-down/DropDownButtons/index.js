@@ -44,7 +44,13 @@ const DropDownButtons = props => {
       <div className="title">
         <span>{title}</span>
       </div>
-      <div className="btn-options">{renderOptionButtons()}</div>
+      <div className="btn-options">
+        {renderOptionButtons()}
+        {renderOptionButtons()}
+        {renderOptionButtons()}
+        {renderOptionButtons()}
+        {renderOptionButtons()}
+      </div>
     </div>
   );
 };

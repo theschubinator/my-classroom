@@ -9,8 +9,13 @@ describe('App', () => {
     unmount();
   });
 
-  it('renders the navBar', () => {
+  it('renders the NavHeader', () => {
     const { queryByTestId } = render(<App />);
     expect(queryByTestId('nav-header')).toBeInTheDocument();
+  });
+
+  it('renders the Modal', () => {
+    const { queryByTestId } = render(<App />);
+    expect(queryByTestId('modal')).toBeInTheDocument();
   });
 });
