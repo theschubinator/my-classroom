@@ -1,3 +1,3 @@
-export { mockUrl } from './mockUrl';
-export { mockEvent } from './mockEvent';
+export * from './mocks';
 export { renderWithRouter } from './renderWithRouter';
+export { renderWithRedux } from './renderWithRedux';

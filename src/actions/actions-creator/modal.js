@@ -1,14 +1,10 @@
 import * as types from '../action-list';
 
-export const loadModal = modalType => dispatch => {
-  dispatch({
-    modalType,
-    type: types.MODAL_LOAD
-  });
-};
+export const loadModal = modalType => ({
+  modalType,
+  type: types.MODAL_LOAD
+});
 
-export const clearModal = () => dispatch => {
-  dispatch({
-    type: types.MODAL_CLEAR
-  });
-};
+export const clearModal = () => ({
+  type: types.MODAL_CLEAR
+});

@@ -1,4 +1,5 @@
 import Chance from 'chance';
+import React from 'react';
 
 const chance = new Chance();
 
@@ -7,3 +8,5 @@ export const mockEvent = {
     value: chance.string()
   }
 };
+
+export const mockUrl = '/' + chance.url();

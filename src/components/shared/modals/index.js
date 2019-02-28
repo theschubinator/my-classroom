@@ -13,7 +13,11 @@ export const Modal = props => {
   const renderComponent = () => (
     <React.Fragment>
       <header>
-        <span className="close-btn" onClick={props.clearModal}>
+        <span
+          data-testid="close-btn"
+          className="close-btn"
+          onClick={props.clearModal}
+        >
           X
         </span>
         <h1>{title}</h1>
@@ -25,7 +29,7 @@ export const Modal = props => {
   const classStatus = props.modalType && Component ? 'active' : 'inactive';
 
   return (
-    <div className={`modal ${classStatus}`}>
+    <div data-testid="modal" className={`modal ${classStatus}`}>
       <div className="modal-container">
         {props.modalType && Component && renderComponent()}
       </div>
