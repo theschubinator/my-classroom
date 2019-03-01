@@ -1,4 +1,4 @@
-import * as Modals from './modalComponents';
+import Modals from './modalComponents';
 import t from 'tcomb';
 
 export const modalTypes = {

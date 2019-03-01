@@ -1,16 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
+import InputWithLabel from '../../../inputs/InputWithLabel';
+import DropDownWithLabel from '../../../drop-down/DropDownWithLabel';
+
+import { connect } from 'react-redux';
+import { DropDownTypes } from '../../../drop-down/DropDownWithLabel/dropDownMap';
 
 import './index.scss';
 
-export const CreateExam = props => {
+const CreateExam = props => {
+  const [form, setForm] = useState({ name: '', subject: '' });
+
+  const handleChange = e => {
+    const { id, value } = e.target;
+    setForm({ ...form, [id]: value });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+  };
+
   return (
     <section className="create-exam-modal">
-      rinter took a galley of type and scrambled it to make a type specimen
-      book. It has survived not only five centuries, but also the leap into
-      electronic typesetting, remaining essentially unchanged. It was
-      popularised in the 1960s with the release of Letraset sheets containing
-      Lorem Ipsum passages, and more recently with desktop publishing software
-      like Aldus PageMaker including versions of Lorem Ipsum
+      <form onSubmit={handleSubmit} onChange={handleChange}>
+        <InputWithLabel for="name" label="Name" />
+        <DropDownWithLabel
+          for="subject"
+          type={DropDownTypes('EXAM_SUBJECT')}
+          options={[{ value: 'Spelling' }]}
+        />
+      </form>
     </section>
   );
 };
+
+export default connect(
+  null,
+  {}
+)(CreateExam);

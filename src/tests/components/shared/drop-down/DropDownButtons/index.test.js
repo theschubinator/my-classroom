@@ -1,8 +1,8 @@
 import Chance from 'chance';
-import DropDownButtons from '.';
+import DropDownButtons from '../../../../../components/shared/drop-down/DropDownButtons';
 import React from 'react';
 
-import { mockUrl, renderWithRouter } from '../../../../utils/testUtils';
+import { mockUrl, renderWithRouter } from '../../../../utils';
 import { fireEvent } from 'react-testing-library';
 
 const chance = new Chance();

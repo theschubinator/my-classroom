@@ -1,9 +1,9 @@
-import Link from '.';
+import Link from '../../../../../components/shared/links/Link';
 import React from 'react';
 import Chance from 'chance';
 
 import { fireEvent } from 'react-testing-library';
-import { mockUrl, renderWithRouter } from '../../../../utils/testUtils';
+import { mockUrl, renderWithRouter } from '../../../../utils';
 
 const chance = new Chance();
 

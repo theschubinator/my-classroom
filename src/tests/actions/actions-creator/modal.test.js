@@ -1,5 +1,5 @@
-import * as actions from './modal';
-import * as types from '../action-list';
+import * as actions from '../../../actions/actions-creator/modal';
+import * as types from '../../../actions/action-list';
 
 describe('Given Modal Actions', () => {
   it('should be able to load a modal', () => {

@@ -1,9 +1,9 @@
-import InputWithLabel from '.';
+import InputWithLabel from '../../../../../components/shared/inputs/InputWithLabel';
 import React from 'react';
 import Chance from 'chance';
 
 import { render, fireEvent } from 'react-testing-library';
-import { mockEvent } from '../../../../utils/testUtils';
+import { mockEvent } from '../../../../utils';
 
 const chance = new Chance();
 

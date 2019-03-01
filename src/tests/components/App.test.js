@@ -1,7 +1,7 @@
-import App from './App';
+import App from '../../components/App';
 import React from 'react';
 
-import { renderWithRedux } from '../utils/testUtils';
+import { renderWithRedux } from '../utils';
 
 describe('App', () => {
   it('renders without crashing', () => {

@@ -10,3 +10,5 @@ export const mockEvent = {
 };
 
 export const mockUrl = '/' + chance.url();
+
+export const mockComponent = () => <div data-testid="mock-component" />;

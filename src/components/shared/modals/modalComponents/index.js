@@ -1,1 +1,3 @@
-export { CreateExam } from './CreateExam';
+import CreateExam from './CreateExam';
+
+export default { CreateExam };

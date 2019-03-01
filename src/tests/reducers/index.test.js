@@ -1,7 +1,7 @@
-import rootReducer from './index';
+import rootReducer from '../../reducers/index';
 import { createStore } from 'redux';
 
-import { getDefaultState as getModalDefaultState } from '../state/modal';
+import { getDefaultState as getModalDefaultState } from '../../state/modal';
 
 describe('Given  rootReducers', () => {
   const store = createStore(rootReducer);

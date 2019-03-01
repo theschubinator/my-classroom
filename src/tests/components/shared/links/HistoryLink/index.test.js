@@ -1,9 +1,9 @@
-import HistoryLink from '.';
+import HistoryLink from '../../../../../components/shared/links/HistoryLink';
 import React from 'react';
 import Chance from 'chance';
 
 import { fireEvent } from 'react-testing-library';
-import { mockUrl, renderWithRouter } from '../../../../utils/testUtils';
+import { mockUrl, renderWithRouter } from '../../../../utils';
 
 const chance = new Chance();
 

@@ -1,6 +1,6 @@
-import * as types from '../actions/action-list';
-import modalReducer from './modalReducer';
-import { getDefaultState as getModalDefaultState } from '../state/modal';
+import * as types from '../../actions/action-list';
+import modalReducer from '../../reducers/modalReducer';
+import { getDefaultState as getModalDefaultState } from '../../state/modal';
 import Chance from 'chance';
 
 const chance = new Chance();

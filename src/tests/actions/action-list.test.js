@@ -1,4 +1,4 @@
-import * as types from './action-list';
+import * as types from '../../actions/action-list';
 
 describe('Actions List', () => {
   it('should use a unique value for each action', () => {
