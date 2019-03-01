@@ -18,21 +18,46 @@ describe('Given DropDownMap', () => {
   describe('and the getDropDownOptions', () => {
     const currentDropDownOption = chance.pickone(Object.keys(dropDownMap));
 
-    it('should return the correct dropDown with the default options', () => {
-      const expectedOptions = dropDownMap[currentDropDownOption];
-      expect(getDropDownOptions(currentDropDownOption)).toEqual(
-        expectedOptions
-      );
+    describe('and there are no dropDown map matches', () => {
+      it('should create a custom dropDown type from passed in values', () => {
+        const mockDropDown = {
+          title: chance.string(),
+          options: [{ value: chance.string() }]
+        };
+
+        expect(
+          getDropDownOptions(null, mockDropDown.options, mockDropDown.title)
+        ).toEqual(mockDropDown);
+      });
     });
 
-    it('should return the correct dropDown with the custom passed in options', () => {
-      const mockOptions = [{ value: chance.string() }];
-      dropDownMap[currentDropDownOption].options = mockOptions;
-      const expectedOptions = dropDownMap[currentDropDownOption];
+    describe('and there is a dropDown map match', () => {
+      it('should return the correct dropDown with the default options', () => {
+        const expectedOptions = dropDownMap[currentDropDownOption];
+        expect(getDropDownOptions(currentDropDownOption)).toEqual(
+          expectedOptions
+        );
+      });
 
-      expect(getDropDownOptions(currentDropDownOption, mockOptions)).toEqual(
-        expectedOptions
-      );
+      it('should return the correct dropDown with the custom passed in options', () => {
+        const mockOptions = [{ value: chance.string() }];
+        dropDownMap[currentDropDownOption].options = mockOptions;
+        const expectedOptions = dropDownMap[currentDropDownOption];
+
+        expect(getDropDownOptions(currentDropDownOption, mockOptions)).toEqual(
+          expectedOptions
+        );
+      });
+
+      it('should return the correct dropDown with the custom passed in title', () => {
+        const mockTitle = chance.string();
+        dropDownMap[currentDropDownOption].title = mockTitle;
+        const expectedOptions = dropDownMap[currentDropDownOption];
+
+        expect(
+          getDropDownOptions(currentDropDownOption, null, mockTitle)
+        ).toEqual(expectedOptions);
+      });
     });
   });
 });

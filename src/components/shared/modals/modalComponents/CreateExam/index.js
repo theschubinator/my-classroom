@@ -17,6 +17,7 @@ const CreateExam = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(form);
   };
 
   return (
@@ -28,6 +29,7 @@ const CreateExam = props => {
           type={DropDownTypes('EXAM_SUBJECT')}
           options={[{ value: 'Spelling' }]}
         />
+        <input type="submit" />
       </form>
     </section>
   );

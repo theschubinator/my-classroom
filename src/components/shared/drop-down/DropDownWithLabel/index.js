@@ -4,7 +4,11 @@ import PropTypes from 'prop-types';
 import { getDropDownOptions } from './dropDownMap';
 
 const DropDown = props => {
-  const { title, options } = getDropDownOptions(props.type, props.options);
+  const { title, options } = getDropDownOptions(
+    props.type,
+    props.options,
+    props.title
+  );
 
   const [value, setValue] = useState('');
 
@@ -42,7 +46,8 @@ const DropDown = props => {
 DropDown.propTypes = {
   for: PropTypes.string.isRequired,
   options: PropTypes.array,
-  type: PropTypes.string.isRequired
+  title: PropTypes.string,
+  type: PropTypes.string
 };
 
 export default DropDown;

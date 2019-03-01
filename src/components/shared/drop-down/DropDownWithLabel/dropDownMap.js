@@ -9,22 +9,19 @@ export const DropDownTypes = t.enums(dropDownTypes, 'dropDownTypes');
 export const dropDownMap = {
   EXAM_SUBJECT: {
     title: 'Subject',
-    options: [
-      { value: 'History' },
-      { value: 'Language' },
-      { value: 'Math' },
-      { value: 'Other' },
-      { value: 'Science' }
-    ]
+    options: []
   }
 };
 
-export const getDropDownOptions = (type, customOptions) => {
+export const getDropDownOptions = (type, customOptions, customTitle) => {
   const currentDropDown = dropDownMap[type];
 
-  if (customOptions) {
-    currentDropDown.options = customOptions;
+  if (!currentDropDown) {
+    return { title: customTitle, options: customOptions };
   }
+
+  currentDropDown.options = customOptions || currentDropDown.options;
+  currentDropDown.title = customTitle || currentDropDown.title;
 
   return currentDropDown;
 };
