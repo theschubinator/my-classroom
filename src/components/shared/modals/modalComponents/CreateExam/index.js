@@ -7,8 +7,8 @@ import DropDownWithLabel from '../../../drop-down/DropDownWithLabel';
 import InputWithLabel from '../../../inputs/InputWithLabel';
 import SubmitInput from '../../../inputs/submitInput';
 import {
-  getSpecificItems as getUniqueClassSubjects,
-  createObjectArrayFromStringArray as createOptionValues
+  createObjectArrayFromStringArray as createOptionValues,
+  getSpecificItemsFromArrayOfObjects as getUniqueClassSubjects
 } from '../../../../../utils/helpers';
 import { clearModal } from '../../../../../actions/actions-creator/app';
 

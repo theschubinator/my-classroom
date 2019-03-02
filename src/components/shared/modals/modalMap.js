@@ -1,5 +1,6 @@
-import Modals from './modalComponents';
 import t from 'tcomb';
+
+import CreateExam from './modalComponents/CreateExam';
 
 export const modalTypes = {
   CREATE_EXAM: 'CREATE_EXAM'
@@ -15,5 +16,5 @@ export const getModalData = modalType => {
 };
 
 export const modalMap = {
-  CREATE_EXAM: { title: 'Create Exam', Component: Modals.CreateExam }
+  CREATE_EXAM: { title: 'Create Exam', Component: CreateExam }
 };

@@ -1,7 +1,7 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import React from 'react';
 import t from 'tcomb';
+import { withRouter } from 'react-router-dom';
 
 import './index.scss';
 

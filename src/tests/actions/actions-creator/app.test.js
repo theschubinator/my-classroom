@@ -1,6 +1,7 @@
+import Chance from 'chance';
+
 import * as actions from '../../../actions/actions-creator/app';
 import * as types from '../../../actions/action-list';
-import Chance from 'chance';
 
 const chance = new Chance();
 

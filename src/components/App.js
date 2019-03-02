@@ -1,9 +1,9 @@
+import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import CreateExam from './teacher/CreateExam';
 import Modal from './shared/modals';
 import NavHeader from './NavHeader';
-import React from 'react';
-
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const App = props => {
   return (

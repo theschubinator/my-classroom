@@ -1,5 +1,6 @@
-import State, { getDefaultState } from '../../../state/classes';
 import t from 'tcomb';
+
+import State, { getDefaultState } from '../../../state/classes';
 
 describe('The Class State', () => {
   it('should have a type', () => {

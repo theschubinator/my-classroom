@@ -1,7 +1,8 @@
+import Chance from 'chance';
+
 import * as types from '../../actions/action-list';
 import appReducer from '../../reducers/appReducer';
 import { getDefaultState as getModalDefaultState } from '../../state/app';
-import Chance from 'chance';
 
 const chance = new Chance();
 

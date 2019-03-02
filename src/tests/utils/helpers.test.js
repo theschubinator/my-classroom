@@ -1,5 +1,6 @@
-import * as Helpers from '../../utils/helpers';
 import Chance from 'chance';
+
+import * as Helpers from '../../utils/helpers';
 
 const chance = new Chance();
 
@@ -22,12 +23,12 @@ describe('The Helper Functions', () => {
       const expectedResult1 = [string3];
       const expectedResult2 = [string1, string2];
 
-      expect(Helpers.getSpecificItems(mockArray, 'key1')).toEqual(
-        expectedResult1
-      );
-      expect(Helpers.getSpecificItems(mockArray, 'key2')).toEqual(
-        expectedResult2
-      );
+      expect(
+        Helpers.getSpecificItemsFromArrayOfObjects(mockArray, 'key1')
+      ).toEqual(expectedResult1);
+      expect(
+        Helpers.getSpecificItemsFromArrayOfObjects(mockArray, 'key2')
+      ).toEqual(expectedResult2);
     });
 
     it('should return an array of specific items that are nested 2 or more levels deep', () => {
@@ -42,12 +43,12 @@ describe('The Helper Functions', () => {
       const expectedResult1 = [string1, string2];
       const expectedResult2 = [string4, string3, string2];
 
-      expect(Helpers.getSpecificItems(mockArray, ['key2', 'key3'])).toEqual(
-        expectedResult1
-      );
-      expect(Helpers.getSpecificItems(mockArray, ['key2', 'key4'])).toEqual(
-        expectedResult2
-      );
+      expect(
+        Helpers.getSpecificItemsFromArrayOfObjects(mockArray, ['key2', 'key3'])
+      ).toEqual(expectedResult1);
+      expect(
+        Helpers.getSpecificItemsFromArrayOfObjects(mockArray, ['key2', 'key4'])
+      ).toEqual(expectedResult2);
     });
   });
 

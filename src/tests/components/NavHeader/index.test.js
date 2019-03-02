@@ -1,6 +1,6 @@
-import NavHeader from '../../../components/NavHeader';
 import React from 'react';
 
+import NavHeader from '../../../components/NavHeader';
 import { renderWithRouter } from '../../testUtils';
 
 describe('NavHeader', () => {

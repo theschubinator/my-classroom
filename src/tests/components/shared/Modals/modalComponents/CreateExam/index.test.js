@@ -3,11 +3,11 @@ import { fireEvent } from 'react-testing-library';
 
 import CreateExam from '../../../../../../components/shared/modals/modalComponents/CreateExam';
 import {
-  mockEvent,
-  renderWithReduxAndRouter,
-  mockUrl,
   mockAppState,
-  mockClassesState
+  mockClassesState,
+  mockEvent,
+  mockUrl,
+  renderWithReduxAndRouter
 } from '../../../../../testUtils';
 
 describe('Given CreatExam Modal', () => {

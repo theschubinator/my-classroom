@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import { dropDownButtonMap } from './dropDownButtonMap';
-import { withRouter } from 'react-router-dom';
 
 import './index.scss';
 

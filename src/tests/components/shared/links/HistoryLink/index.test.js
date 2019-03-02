@@ -1,8 +1,8 @@
 import Chance from 'chance';
-import HistoryLink from '../../../../../components/shared/links/HistoryLink';
 import React from 'react';
-
 import { fireEvent } from 'react-testing-library';
+
+import HistoryLink from '../../../../../components/shared/links/HistoryLink';
 import { mockUrl, renderWithRouter } from '../../../../testUtils';
 
 const chance = new Chance();

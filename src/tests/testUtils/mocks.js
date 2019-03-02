@@ -31,3 +31,10 @@ export const mockClassesState = () => {
     { name: chance.string(), subject: chance.string() }
   ];
 };
+
+export const mockUserState = () => {
+  return {
+    id: chance.string(),
+    name: chance.string()
+  };
+};

@@ -1,8 +1,8 @@
 import * as types from '../../actions/action-list';
-import classesReducer from '../../reducers/classesReducer';
-import { getDefaultState as getClassesDefaultState } from '../../state/classes';
+import userReducer from '../../reducers/userReducer';
+import { getDefaultState as getClassesDefaultState } from '../../state/user';
 
-describe('Given Modal Reducer', () => {
+describe('Given User Reducer', () => {
   let defaultState;
 
   beforeEach(() => {
@@ -11,6 +11,6 @@ describe('Given Modal Reducer', () => {
 
   it('should return the initial state when none is given', () => {
     const expectedState = defaultState;
-    expect(classesReducer(undefined, {})).toEqual(expectedState);
+    expect(userReducer(undefined, {})).toEqual(expectedState);
   });
 });

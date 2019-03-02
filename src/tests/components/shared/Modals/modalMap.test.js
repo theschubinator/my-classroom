@@ -1,9 +1,9 @@
 import Chance from 'chance';
 
 import {
-  modalTypes,
+  getModalData,
   modalMap,
-  getModalData
+  modalTypes
 } from '../../../../components/shared/modals/modalMap';
 
 const chance = new Chance();

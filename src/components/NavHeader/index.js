@@ -1,11 +1,11 @@
-import HistoryLink, { HistoryLinkTypes } from '../shared/links/HistoryLink';
-
 import React from 'react';
+
 import DropDownButtons from '../shared/drop-down/DropDownButtons';
+import HistoryLink, { HistoryLinkTypes } from '../shared/links/HistoryLink';
 import InputWithLabel from '../shared/inputs/InputWithLabel';
 import Link from '../shared/links/Link';
-
 import { DropDownButtonTypes } from '../shared/drop-down/DropDownButtons/dropDownButtonMap';
+
 import { FaSearch } from 'react-icons/fa';
 import './index.scss';
 

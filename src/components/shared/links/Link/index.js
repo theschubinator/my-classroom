@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Link as RouterLink } from 'react-router-dom';
+import React from 'react';
 
 import './index.scss';
 

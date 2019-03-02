@@ -1,8 +1,8 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { connect } from 'react-redux';
 
 import { clearModal } from '../../../actions/actions-creator/app';
-import { connect } from 'react-redux';
 import { getModalData } from './modalMap';
 
 import './index.scss';

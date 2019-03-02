@@ -1,4 +1,4 @@
-export const getSpecificItems = (array, item) => {
+export const getSpecificItemsFromArrayOfObjects = (array, item) => {
   const findItem = obj => {
     if (typeof item === 'string') return obj[item];
 
