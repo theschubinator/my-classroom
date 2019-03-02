@@ -1,12 +1,16 @@
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import InputWithLabel from '../../../inputs/InputWithLabel';
-import DropDownWithLabel from '../../../drop-down/DropDownWithLabel';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
+import DropDownWithLabel from '../../../drop-down/DropDownWithLabel';
+import InputWithLabel from '../../../inputs/InputWithLabel';
+import SubmitInput from '../../../inputs/submitInput';
 import {
   getSpecificItems as getUniqueClassSubjects,
   createObjectArrayFromStringArray as createOptionValues
 } from '../../../../../utils/helpers';
-import { connect } from 'react-redux';
+import { clearModal } from '../../../../../actions/actions-creator/app';
 
 import './index.scss';
 
@@ -18,9 +22,13 @@ const CreateExam = props => {
     setForm({ ...form, [id]: value });
   };
 
+  const handleCancel = () => {
+    props.clearModal();
+    props.history.push('/');
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(form);
   };
 
   return (
@@ -32,10 +40,18 @@ const CreateExam = props => {
           title="Subject"
           options={props.options}
         />
-        <input type="submit" />
+        <button className="btn btn-cancel" onClick={handleCancel}>
+          Cancel
+        </button>
+        <SubmitInput />
       </form>
     </section>
   );
+};
+
+CreateExam.propTypes = {
+  clearModal: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => {
@@ -45,7 +61,9 @@ const mapStateToProps = state => {
   return { options };
 };
 
-export default connect(
-  mapStateToProps,
-  {}
-)(CreateExam);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { clearModal }
+  )(CreateExam)
+);

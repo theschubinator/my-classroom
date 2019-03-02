@@ -11,7 +11,7 @@ describe('', () => {
   const mockDropdownButtonMap = {
     MOCK: {
       title: chance.string(),
-      options: [{ value: chance.string(), linkTo: mockUrl }]
+      options: [{ value: chance.string(), linkTo: mockUrl() }]
     }
   };
 

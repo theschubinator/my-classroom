@@ -1,26 +1,25 @@
-import Chance from 'chance';
-import CreateExam from '../../../../../../components/shared/modals/modalComponents/CreateExam';
 import React from 'react';
-
 import { fireEvent } from 'react-testing-library';
-import { mockEvent, renderWithRedux } from '../../../../../testUtils';
 
-const chance = new Chance();
+import CreateExam from '../../../../../../components/shared/modals/modalComponents/CreateExam';
+import {
+  mockEvent,
+  renderWithReduxAndRouter,
+  mockUrl,
+  mockAppState,
+  mockClassesState
+} from '../../../../../testUtils';
 
 describe('Given CreatExam Modal', () => {
   const initialState = {
-    classes: [
-      {
-        name: chance.string(),
-        subject: chance.string()
-      }
-    ]
+    app: mockAppState(),
+    classes: mockClassesState()
   };
 
   it('should contain a form that sets an exams name', () => {
-    const { getByLabelText } = renderWithRedux(<CreateExam />);
+    const { getByLabelText } = renderWithReduxAndRouter(<CreateExam />);
 
-    const event = mockEvent;
+    const event = mockEvent();
 
     const input = getByLabelText('Name');
 
@@ -30,7 +29,7 @@ describe('Given CreatExam Modal', () => {
   });
 
   it('should contain a form that sets an exams subject', () => {
-    const { getByLabelText } = renderWithRedux(<CreateExam />, {
+    const { getByLabelText } = renderWithReduxAndRouter(<CreateExam />, {
       initialState
     });
 
@@ -45,5 +44,24 @@ describe('Given CreatExam Modal', () => {
     expect(dropDown.value).toBe('');
     fireEvent.change(dropDown, event);
     expect(dropDown.value).toBe(event.target.value);
+  });
+
+  it('should close the modal and redirect back to the home page when `cancel` button is click', () => {
+    const route = mockUrl();
+    const { getByText, history, store } = renderWithReduxAndRouter(
+      <CreateExam />,
+      {
+        initialState
+      },
+      { route }
+    );
+
+    expect(history.location.pathname).toBe(route);
+    expect(store.getState().app.modal).toBe(initialState.app.modal);
+
+    fireEvent.click(getByText('Cancel'));
+
+    expect(history.location.pathname).toBe('/');
+    expect(store.getState().app.modal).toBe('');
   });
 });

@@ -1,6 +1,6 @@
+import Chance from 'chance';
 import HistoryLink from '../../../../../components/shared/links/HistoryLink';
 import React from 'react';
-import Chance from 'chance';
 
 import { fireEvent } from 'react-testing-library';
 import { mockUrl, renderWithRouter } from '../../../../testUtils';
@@ -12,7 +12,7 @@ describe('Given HistoryLink', () => {
     const props = Object.freeze({
       title: chance.string(),
       type: 'btn',
-      route: mockUrl
+      route: mockUrl()
     });
 
     it('should exist and be able to redirect to the correct route', () => {
@@ -31,7 +31,7 @@ describe('Given HistoryLink', () => {
   describe('it should be able to render an image link', () => {
     const props = Object.freeze({
       type: 'src',
-      route: mockUrl,
+      route: mockUrl(),
       src: chance.string()
     });
 

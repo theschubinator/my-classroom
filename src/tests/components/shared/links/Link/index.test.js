@@ -1,8 +1,8 @@
+import Chance from 'chance';
+import { fireEvent } from 'react-testing-library';
+
 import Link from '../../../../../components/shared/links/Link';
 import React from 'react';
-import Chance from 'chance';
-
-import { fireEvent } from 'react-testing-library';
 import { mockUrl, renderWithRouter } from '../../../../testUtils';
 
 const chance = new Chance();
@@ -10,7 +10,7 @@ const chance = new Chance();
 describe('Given Link', () => {
   const props = Object.freeze({
     title: chance.string(),
-    to: mockUrl
+    to: mockUrl()
   });
 
   it('should exist and redirect to the correct route when clicked', () => {

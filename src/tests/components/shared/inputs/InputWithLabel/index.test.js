@@ -1,9 +1,9 @@
-import InputWithLabel from '../../../../../components/shared/inputs/InputWithLabel';
-import React from 'react';
 import Chance from 'chance';
-
-import { render, fireEvent } from 'react-testing-library';
+import React from 'react';
 import { mockEvent } from '../../../../testUtils';
+import { render, fireEvent } from 'react-testing-library';
+
+import InputWithLabel from '../../../../../components/shared/inputs/InputWithLabel';
 
 const chance = new Chance();
 
@@ -19,7 +19,7 @@ describe('Given InputWithLabel', () => {
 
     expect(input.value).toBe('');
 
-    const event = mockEvent;
+    const event = mockEvent();
     fireEvent.change(input, event);
     expect(input.value).toBe(event.target.value);
   });
