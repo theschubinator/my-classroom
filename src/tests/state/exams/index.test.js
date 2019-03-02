@@ -1,10 +1,10 @@
 import t from 'tcomb';
 
-import State, { getDefaultState } from '../../../state/classes';
+import State, { getDefaultState } from '../../../state/exams';
 
-describe('The Classes State', () => {
+describe('The Exam State', () => {
   it('should have a type', () => {
-    expect(t.getTypeName(State)).toBe('ClassesState');
+    expect(t.getTypeName(State)).toBe('ExamsState');
   });
 
   it('should be a tComb struct', () => {

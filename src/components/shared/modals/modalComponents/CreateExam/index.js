@@ -11,6 +11,7 @@ import {
   getSpecificItemsFromArrayOfObjects as getUniqueClassSubjects
 } from '../../../../../utils/helpers';
 import { clearModal } from '../../../../../actions/actions-creator/app';
+import { saveExam } from '../../../../../actions/actions-creator/exam';
 
 import './index.scss';
 
@@ -29,6 +30,8 @@ const CreateExam = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    props.saveExam(form);
+    props.clearModal();
   };
 
   return (
@@ -64,6 +67,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { clearModal }
+    { clearModal, saveExam }
   )(CreateExam)
 );

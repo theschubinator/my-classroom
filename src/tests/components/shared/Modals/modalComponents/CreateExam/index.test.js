@@ -16,52 +16,66 @@ describe('Given CreatExam Modal', () => {
     classes: mockClassesState()
   };
 
-  it('should contain a form that sets an exams name', () => {
-    const { getByLabelText } = renderWithReduxAndRouter(<CreateExam />);
+  describe('and performing actions that update the form', () => {
+    it('should contain a form that sets an exams name', () => {
+      const { getByLabelText } = renderWithReduxAndRouter(<CreateExam />);
 
-    const event = mockEvent();
+      const event = mockEvent();
 
-    const input = getByLabelText('Name');
+      const input = getByLabelText('Name');
 
-    expect(input.value).toBe('');
-    fireEvent.change(input, event);
-    expect(input.value).toBe(event.target.value);
-  });
-
-  it('should contain a form that sets an exams subject', () => {
-    const { getByLabelText } = renderWithReduxAndRouter(<CreateExam />, {
-      initialState
+      expect(input.value).toBe('');
+      fireEvent.change(input, event);
+      expect(input.value).toBe(event.target.value);
     });
 
-    const event = {
-      target: {
-        value: initialState.classes[0].subject
-      }
-    };
+    it('should contain a form that sets an exams subject', () => {
+      const { getByLabelText } = renderWithReduxAndRouter(<CreateExam />, {
+        initialState
+      });
 
-    const dropDown = getByLabelText('Subject');
+      const event = {
+        target: {
+          value: initialState.classes[0].subject
+        }
+      };
 
-    expect(dropDown.value).toBe('');
-    fireEvent.change(dropDown, event);
-    expect(dropDown.value).toBe(event.target.value);
+      const dropDown = getByLabelText('Subject');
+
+      expect(dropDown.value).toBe('');
+      fireEvent.change(dropDown, event);
+      expect(dropDown.value).toBe(event.target.value);
+    });
   });
 
-  it('should close the modal and redirect back to the home page when `cancel` button is click', () => {
-    const route = mockUrl();
-    const { getByText, history, store } = renderWithReduxAndRouter(
-      <CreateExam />,
-      {
+  describe('and an action was perform that closes the modal', () => {
+    it('redirects back to the home page when `cancel` button is click', () => {
+      const route = mockUrl();
+      const { getByText, history, store } = renderWithReduxAndRouter(
+        <CreateExam />,
+        {
+          initialState
+        },
+        { route }
+      );
+
+      expect(history.location.pathname).toBe(route);
+      expect(store.getState().app.modal).toBe(initialState.app.modal);
+
+      fireEvent.click(getByText('Cancel'));
+
+      expect(history.location.pathname).toBe('/');
+      expect(store.getState().app.modal).toBe('');
+    });
+
+    it('closes the modal upon a successful submission', () => {
+      const { getByValue, store } = renderWithReduxAndRouter(<CreateExam />, {
         initialState
-      },
-      { route }
-    );
+      });
 
-    expect(history.location.pathname).toBe(route);
-    expect(store.getState().app.modal).toBe(initialState.app.modal);
-
-    fireEvent.click(getByText('Cancel'));
-
-    expect(history.location.pathname).toBe('/');
-    expect(store.getState().app.modal).toBe('');
+      expect(store.getState().app.modal).toBe(initialState.app.modal);
+      fireEvent.click(getByValue('Submit'));
+      expect(store.getState().app.modal).toBe('');
+    });
   });
 });

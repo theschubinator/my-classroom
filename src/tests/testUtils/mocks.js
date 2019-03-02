@@ -1,5 +1,6 @@
 import Chance from 'chance';
 import React from 'react';
+import Exam from '../../state/exams/exam';
 
 const chance = new Chance();
 
@@ -32,9 +33,9 @@ export const mockClassesState = () => {
   ];
 };
 
-export const mockUserState = () => {
-  return {
-    id: chance.string(),
-    name: chance.string()
-  };
+export const mockExam = () => {
+  return Exam({
+    name: chance.string(),
+    subject: chance.string()
+  });
 };
