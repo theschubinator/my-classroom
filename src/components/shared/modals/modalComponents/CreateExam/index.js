@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import Input from '../../../inputs';
+import Button from '../../../buttons';
 import {
   createObjectArrayFromStringArray as createOptionValues,
   getSpecificItemsFromArrayOfObjects as getUniqueClassSubjects
@@ -41,9 +42,11 @@ const CreateExam = props => {
           title="Subject"
           options={props.options}
         />
-        <button className="btn cancel-btn" onClick={handleCancel}>
-          Cancel
-        </button>
+        <Button.normal
+          className="btn cancel-btn"
+          name="Cancel"
+          onClick={handleCancel}
+        />
         <Input.submitButton />
       </form>
     </section>
