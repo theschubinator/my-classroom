@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import { ModalTypes } from '../../shared/modals/modalMap';
 import { connect } from 'react-redux';
-import { loadModal } from '../../../actions/actions-creator/modal';
+import { loadModal } from '../../../actions/actions-creator/app';
 
 export const CreateExam = props => {
   useEffect(() => {

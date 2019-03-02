@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { clearModal } from '../../../actions/actions-creator/modal';
+import { clearModal } from '../../../actions/actions-creator/app';
 import { connect } from 'react-redux';
 import { getModalData } from './modalMap';
 
 import './index.scss';
 
 export const Modal = props => {
-  const { title, Component } = getModalData(props.modalType);
+  const { title, Component } = getModalData(props.modal);
 
   const renderComponent = () => (
     <React.Fragment>
@@ -26,23 +26,23 @@ export const Modal = props => {
     </React.Fragment>
   );
 
-  const classStatus = props.modalType && Component ? 'active' : 'inactive';
+  const classStatus = props.modal && Component ? 'active' : 'inactive';
 
   return (
     <div data-testid="modal" className={`modal ${classStatus}`}>
       <div className="modal-container">
-        {props.modalType && Component && renderComponent()}
+        {props.modal && Component && renderComponent()}
       </div>
     </div>
   );
 };
 
 Modal.propTypes = {
-  modalType: PropTypes.string.isRequired
+  modal: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({
-  modalType: state.modal.modalType
+  modal: state.app.modal
 });
 
 export default connect(

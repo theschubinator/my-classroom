@@ -3,7 +3,7 @@ import React from 'react';
 import Chance from 'chance';
 
 import { render, fireEvent } from 'react-testing-library';
-import { mockEvent } from '../../../../utils';
+import { mockEvent } from '../../../../testUtils';
 
 const chance = new Chance();
 

@@ -1,7 +1,7 @@
 import * as types from '../action-list';
 
-export const loadModal = modalType => ({
-  modalType,
+export const loadModal = modal => ({
+  modal,
   type: types.MODAL_LOAD
 });
 

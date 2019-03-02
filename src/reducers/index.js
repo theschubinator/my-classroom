@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import modalReducer from './modalReducer';
+import appReducer from './appReducer';
+import classesReducer from './classesReducer';
 
 export default combineReducers({
-  modal: modalReducer
+  classes: classesReducer,
+  app: appReducer
 });

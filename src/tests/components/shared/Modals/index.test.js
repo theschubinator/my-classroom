@@ -4,14 +4,14 @@ import React from 'react';
 
 import * as ModalMap from '../../../../components/shared/modals/modalMap';
 import { fireEvent } from 'react-testing-library';
-import { mockComponent, renderWithRedux } from '../../../utils';
+import { mockComponent, renderWithRedux } from '../../../testUtils';
 
 const chance = new Chance();
 
 describe('Given Modal', () => {
   const initialState = {
-    modal: {
-      modalType: chance.string()
+    app: {
+      modal: chance.string()
     }
   };
 
@@ -21,13 +21,13 @@ describe('Given Modal', () => {
 
       const inactiveModal = container.getElementsByClassName('inactive')[0];
       expect(inactiveModal).toBeInTheDocument();
-      expect(queryByText(initialState.modal.modalType)).not.toBeInTheDocument();
+      expect(queryByText(initialState.app.modal)).not.toBeInTheDocument();
     });
   });
 
   describe('and the modal is active', () => {
     ModalMap.getModalData = jest.fn().mockReturnValue({
-      title: initialState.modal.modalType,
+      title: initialState.app.modal,
       Component: mockComponent
     });
 
@@ -42,7 +42,7 @@ describe('Given Modal', () => {
       const activeModal = container.getElementsByClassName('active')[0];
       expect(activeModal).toBeInTheDocument();
 
-      expect(queryByText(initialState.modal.modalType)).toBeInTheDocument();
+      expect(queryByText(initialState.app.modal)).toBeInTheDocument();
       expect(queryByTestId('mock-component')).toBeInTheDocument();
     });
 
@@ -59,14 +59,14 @@ describe('Given Modal', () => {
       const activeModal = container.getElementsByClassName('active')[0];
       expect(activeModal).toBeInTheDocument();
 
-      expect(queryByText(initialState.modal.modalType)).toBeInTheDocument();
+      expect(queryByText(initialState.app.modal)).toBeInTheDocument();
       expect(queryByTestId('mock-component')).toBeInTheDocument();
 
       fireEvent.click(getByTestId('close-btn'));
 
       const inactiveModal = container.getElementsByClassName('inactive')[0];
       expect(inactiveModal).toBeInTheDocument();
-      expect(queryByText(initialState.modal.modalType)).not.toBeInTheDocument();
+      expect(queryByText(initialState.app.modal)).not.toBeInTheDocument();
       expect(queryByTestId('mock-component')).not.toBeInTheDocument();
     });
   });

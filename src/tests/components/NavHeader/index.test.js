@@ -1,7 +1,7 @@
 import NavHeader from '../../../components/NavHeader';
 import React from 'react';
 
-import { renderWithRouter } from '../../utils';
+import { renderWithRouter } from '../../testUtils';
 
 describe('NavHeader', () => {
   it('should contain the app title', () => {

@@ -1,15 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { getDropDownOptions } from './dropDownMap';
-
 const DropDown = props => {
-  const { title, options } = getDropDownOptions(
-    props.type,
-    props.options,
-    props.title
-  );
-
   const [value, setValue] = useState('');
 
   const handleChange = e => {
@@ -17,7 +9,7 @@ const DropDown = props => {
   };
 
   const renderOptions = () => {
-    return options.map(option => {
+    return props.options.map(option => {
       return (
         <option
           data-testid="drop-down-option"
@@ -32,7 +24,7 @@ const DropDown = props => {
 
   return (
     <div className="drop-down-with-label">
-      <label htmlFor={props.for}>{title}</label>
+      <label htmlFor={props.for}>{props.title}</label>
       <select value={value} id={props.for} onChange={handleChange}>
         <option disabled value="">
           -
@@ -45,9 +37,8 @@ const DropDown = props => {
 
 DropDown.propTypes = {
   for: PropTypes.string.isRequired,
-  options: PropTypes.array,
-  title: PropTypes.string,
-  type: PropTypes.string
+  options: PropTypes.array.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 export default DropDown;

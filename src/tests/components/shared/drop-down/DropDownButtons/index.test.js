@@ -2,7 +2,7 @@ import Chance from 'chance';
 import DropDownButtons from '../../../../../components/shared/drop-down/DropDownButtons';
 import React from 'react';
 
-import { mockUrl, renderWithRouter } from '../../../../utils';
+import { mockUrl, renderWithRouter } from '../../../../testUtils';
 import { fireEvent } from 'react-testing-library';
 
 const chance = new Chance();

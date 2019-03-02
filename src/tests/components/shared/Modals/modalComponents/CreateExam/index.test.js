@@ -1,10 +1,22 @@
+import Chance from 'chance';
 import CreateExam from '../../../../../../components/shared/modals/modalComponents/CreateExam';
 import React from 'react';
 
 import { fireEvent } from 'react-testing-library';
-import { mockEvent, renderWithRedux } from '../../../../../utils/';
+import { mockEvent, renderWithRedux } from '../../../../../testUtils';
+
+const chance = new Chance();
 
 describe('Given CreatExam Modal', () => {
+  const initialState = {
+    classes: [
+      {
+        name: chance.string(),
+        subject: chance.string()
+      }
+    ]
+  };
+
   it('should contain a form that sets an exams name', () => {
     const { getByLabelText } = renderWithRedux(<CreateExam />);
 
@@ -18,11 +30,13 @@ describe('Given CreatExam Modal', () => {
   });
 
   it('should contain a form that sets an exams subject', () => {
-    const { getByLabelText } = renderWithRedux(<CreateExam />);
+    const { getByLabelText } = renderWithRedux(<CreateExam />, {
+      initialState
+    });
 
     const event = {
       target: {
-        value: 'Spelling'
+        value: initialState.classes[0].subject
       }
     };
 

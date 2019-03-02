@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import InputWithLabel from '../../../inputs/InputWithLabel';
 import DropDownWithLabel from '../../../drop-down/DropDownWithLabel';
 
+import {
+  getSpecificItems as getUniqueClassSubjects,
+  createObjectArrayFromStringArray as createOptionValues
+} from '../../../../../utils/helpers';
 import { connect } from 'react-redux';
-import { DropDownTypes } from '../../../drop-down/DropDownWithLabel/dropDownMap';
 
 import './index.scss';
 
@@ -26,8 +29,8 @@ const CreateExam = props => {
         <InputWithLabel for="name" label="Name" />
         <DropDownWithLabel
           for="subject"
-          type={DropDownTypes('EXAM_SUBJECT')}
-          options={[{ value: 'Spelling' }]}
+          title="Subject"
+          options={props.options}
         />
         <input type="submit" />
       </form>
@@ -35,7 +38,14 @@ const CreateExam = props => {
   );
 };
 
+const mapStateToProps = state => {
+  const subjects = getUniqueClassSubjects(state.classes, 'subject');
+  const options = createOptionValues(subjects, 'value');
+
+  return { options };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   {}
 )(CreateExam);
