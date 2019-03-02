@@ -1,5 +1,5 @@
 import Chance from 'chance';
-import DropDown from '../../../../../components/shared/drop-down/DropDownWithLabel';
+import DropDown from '../../../../../components/shared/inputs/DropDownWithLabel';
 import React from 'react';
 
 import { fireEvent, render } from 'react-testing-library';

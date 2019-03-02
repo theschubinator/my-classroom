@@ -3,9 +3,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import DropDownWithLabel from '../../../drop-down/DropDownWithLabel';
-import InputWithLabel from '../../../inputs/InputWithLabel';
-import SubmitInput from '../../../inputs/submitInput';
+import Input from '../../../inputs';
 import {
   createObjectArrayFromStringArray as createOptionValues,
   getSpecificItemsFromArrayOfObjects as getUniqueClassSubjects
@@ -37,16 +35,16 @@ const CreateExam = props => {
   return (
     <section className="create-exam-modal">
       <form onSubmit={handleSubmit} onChange={handleChange}>
-        <InputWithLabel for="name" label="Name" />
-        <DropDownWithLabel
+        <Input.withLabel for="name" label="Name" />
+        <Input.dropDownWithLabel
           for="subject"
           title="Subject"
           options={props.options}
         />
-        <button className="btn btn-cancel" onClick={handleCancel}>
+        <button className="btn cancel-btn" onClick={handleCancel}>
           Cancel
         </button>
-        <SubmitInput />
+        <Input.submitButton />
       </form>
     </section>
   );

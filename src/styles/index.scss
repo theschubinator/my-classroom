@@ -13,27 +13,11 @@
   --shadow: rgba(0, 0, 0, 0.62);
   --light-shadow: rgba(0, 0, 0, 0.288);
   --highlight: #f7f6ec;
+  --submit-green-light: #2bbe5c;
+  --submit-green-dark: #1ab64e;
+  --cancel-red-light: #f1404b;
+  --cancel-red-dark: #e7303d;
 }
 
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-  transition: filter 0.4s;
-}
-
-html {
-  font-size: 62.5%;
-}
-
-body {
-  background-color: var(--background-color);
-  box-sizing: border-box;
-}
-
-main.App:nth-child(1) {
-  margin-top: 6rem;
-  padding: 5rem 3rem;
-}
+@import './base';
+@import './buttons';

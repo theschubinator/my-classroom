@@ -1,10 +1,10 @@
 import React from 'react';
 
-import DropDownButtons from '../shared/drop-down/DropDownButtons';
-import HistoryLink, { HistoryLinkTypes } from '../shared/links/HistoryLink';
-import InputWithLabel from '../shared/inputs/InputWithLabel';
-import Link from '../shared/links/Link';
-import { DropDownButtonTypes } from '../shared/drop-down/DropDownButtons/dropDownButtonMap';
+import Buttons from '../shared/buttons';
+import Input from '../shared/inputs';
+import Link from '../shared/links';
+import { HistoryLinkTypes } from '../shared/links/HistoryLink';
+import { DropDownButtonTypes } from '../../utils/maps';
 
 import { FaSearch } from 'react-icons/fa';
 import './index.scss';
@@ -14,24 +14,24 @@ const NavHeader = () => {
     <nav data-testid="nav-header">
       <ul>
         <li data-testid="app-title" className="app-title">
-          <HistoryLink
+          <Link.withRouter
             type={HistoryLinkTypes('btn')}
             title="My Classroom"
             route="/"
           />
         </li>
         <li className="left-side">
-          <Link to="/" title="Classes" />
-          <Link to="/" title="Exams" />
-          <Link to="/" title="Quizzes" />
+          <Link.link to="/" title="Classes" />
+          <Link.link to="/" title="Exams" />
+          <Link.link to="/" title="Quizzes" />
         </li>
 
         <li className="right-side">
-          <DropDownButtons
+          <Buttons.dropDownButtons
             className="navbar-drop-down-btns"
             type={DropDownButtonTypes('USER_ACTIONS')}
           />
-          <InputWithLabel
+          <Input.withLabel
             for="search"
             className="search svg"
             label={<FaSearch />}

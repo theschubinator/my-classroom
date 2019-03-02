@@ -1,0 +1,22 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  transition: filter 0.4s;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--background-color);
+  box-sizing: border-box;
+}
+
+main.App:nth-child(1) {
+  margin-top: 6rem;
+  padding: 5rem 3rem;
+}
