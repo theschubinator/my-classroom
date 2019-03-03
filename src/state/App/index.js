@@ -1,15 +1,16 @@
 import t from 'tcomb';
+import Modal, { getDefaultState as getModalDefaultState } from './modal';
 
 const App = t.struct(
   {
-    modal: t.String
+    modal: Modal
   },
   { name: 'AppState', strict: true }
 );
 
 export const getDefaultState = () =>
   App({
-    modal: ''
+    modal: getModalDefaultState()
   });
 
 export default App;

@@ -5,7 +5,11 @@ import './buttons.scss';
 
 const Button = props => {
   return (
-    <button className={`btn ${props.className}`} onClick={props.onClick}>
+    <button
+      type="button"
+      className={`btn ${props.className}`}
+      onClick={props.onClick}
+    >
       {props.name}
     </button>
   );

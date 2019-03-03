@@ -6,6 +6,7 @@ import './buttons.scss';
 const SmallButton = props => {
   return (
     <button
+      type="button"
       className={`btn btn-small ${props.className}`}
       onClick={props.onClick}
     >

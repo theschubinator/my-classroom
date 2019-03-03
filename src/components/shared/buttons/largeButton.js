@@ -6,6 +6,7 @@ import './buttons.scss';
 const LargeButton = props => {
   return (
     <button
+      type="button"
       className={`btn btn-large ${props.className}`}
       onClick={props.onClick}
     >

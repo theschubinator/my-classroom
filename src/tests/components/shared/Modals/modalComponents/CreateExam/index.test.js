@@ -3,17 +3,25 @@ import { fireEvent } from 'react-testing-library';
 
 import CreateExam from '../../../../../../components/shared/modals/modalComponents/CreateExam';
 import {
-  mockAppState,
-  mockClassesState,
   mockEvent,
   mockUrl,
-  renderWithReduxAndRouter
+  renderWithReduxAndRouter,
+  mockClassState,
+  mockModalState
 } from '../../../../../testUtils';
 
 describe('Given CreatExam Modal', () => {
   const initialState = {
-    app: mockAppState(),
-    classes: mockClassesState()
+    app: {
+      modal: mockModalState()
+    },
+    classes: [
+      mockClassState(),
+      mockClassState(),
+      mockClassState(),
+      mockClassState(),
+      mockClassState()
+    ]
   };
 
   describe('and performing actions that update the form', () => {
@@ -50,6 +58,8 @@ describe('Given CreatExam Modal', () => {
 
   describe('and an action was perform that closes the modal', () => {
     it('redirects back to the home page when `cancel` button is click', () => {
+      jest.useFakeTimers();
+
       const route = mockUrl();
       const { getByText, history, store } = renderWithReduxAndRouter(
         <CreateExam />,
@@ -60,22 +70,28 @@ describe('Given CreatExam Modal', () => {
       );
 
       expect(history.location.pathname).toBe(route);
-      expect(store.getState().app.modal).toBe(initialState.app.modal);
+      expect(store.getState().app.modal.type).toBe(initialState.app.modal.type);
 
       fireEvent.click(getByText('Cancel'));
 
+      jest.runAllTimers();
+
       expect(history.location.pathname).toBe('/');
-      expect(store.getState().app.modal).toBe('');
+      expect(store.getState().app.modal.type).toBe('');
     });
 
     it('closes the modal upon a successful submission', () => {
+      jest.useFakeTimers();
       const { getByValue, store } = renderWithReduxAndRouter(<CreateExam />, {
         initialState
       });
 
-      expect(store.getState().app.modal).toBe(initialState.app.modal);
+      expect(store.getState().app.modal.type).toBe(initialState.app.modal.type);
+
       fireEvent.click(getByValue('Submit'));
-      expect(store.getState().app.modal).toBe('');
+      jest.runAllTimers();
+
+      expect(store.getState().app.modal.type).toBe('');
     });
   });
 });

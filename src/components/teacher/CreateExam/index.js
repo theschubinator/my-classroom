@@ -2,11 +2,15 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { ModalTypes } from '../../shared/modals/modalMap';
-import { loadModal } from '../../../actions/actions-creator/app';
+import {
+  loadModalType,
+  toggleModalStatus
+} from '../../../actions/actions-creator/app';
 
 export const CreateExam = props => {
   useEffect(() => {
-    props.loadModal(ModalTypes('CREATE_EXAM'));
+    props.loadModalType(ModalTypes('CREATE_EXAM'));
+    props.toggleModalStatus();
   });
 
   return (
@@ -18,5 +22,5 @@ export const CreateExam = props => {
 
 export default connect(
   null,
-  { loadModal }
+  { loadModalType, toggleModalStatus }
 )(CreateExam);

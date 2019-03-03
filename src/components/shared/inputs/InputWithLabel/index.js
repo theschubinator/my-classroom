@@ -16,12 +16,18 @@ const InputWithLabel = props => {
       className={`input-with-label ${props.className}`}
     >
       <label htmlFor={props.for}>{props.label}</label>
-      <input id={props.for} value={value} onChange={handleChange} />
+      <input
+        autoFocus={props.autoFocus}
+        id={props.for}
+        value={value}
+        onChange={handleChange}
+      />
     </div>
   );
 };
 
 InputWithLabel.propTypes = {
+  autoFocus: PropTypes.bool,
   for: PropTypes.string.isRequired,
   label: PropTypes.oneOfType([PropTypes.node, PropTypes.string]).isRequired
 };

@@ -1,12 +1,12 @@
 import Chance from 'chance';
 
-import * as types from '../../actions/action-list';
-import appReducer from '../../reducers/appReducer';
-import { getDefaultState as getModalDefaultState } from '../../state/app';
+import * as types from '../../../actions/action-list';
+import modalReducer from '../../../reducers/appReducer/modalReducer';
+import { getDefaultState as getModalDefaultState } from '../../../state/app/modal';
 
 const chance = new Chance();
 
-describe('Given App Reducer', () => {
+describe('Given Modal Reducer', () => {
   let defaultState;
 
   beforeEach(() => {
@@ -15,7 +15,7 @@ describe('Given App Reducer', () => {
 
   it('should return the initial state when none is given', () => {
     const expectedState = defaultState;
-    expect(appReducer(undefined, {})).toEqual(expectedState);
+    expect(modalReducer(undefined, {})).toEqual(expectedState);
   });
 
   it('should load the modal to state', () => {
@@ -24,7 +24,7 @@ describe('Given App Reducer', () => {
     const expectedState = { ...defaultState, modal };
 
     expect(
-      appReducer(defaultState, {
+      modalReducer(defaultState, {
         type: types.MODAL_LOAD,
         modal
       })

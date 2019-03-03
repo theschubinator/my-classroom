@@ -9,7 +9,10 @@ import {
   createObjectArrayFromStringArray as createOptionValues,
   getSpecificItemsFromArrayOfObjects as getUniqueClassSubjects
 } from '../../../../../utils/helpers';
-import { clearModal } from '../../../../../actions/actions-creator/app';
+import {
+  clearModal,
+  toggleModalStatus
+} from '../../../../../actions/actions-creator/app';
 import { saveExam } from '../../../../../actions/actions-creator/exam';
 
 import './index.scss';
@@ -23,20 +26,23 @@ const CreateExam = props => {
   };
 
   const handleCancel = () => {
-    props.clearModal();
+    props.toggleModalStatus();
+    setTimeout(props.clearModal, 1000);
     props.history.push('/');
   };
 
   const handleSubmit = e => {
     e.preventDefault();
+
     props.saveExam(form);
-    props.clearModal();
+    props.toggleModalStatus();
+    setTimeout(props.clearModal, 1000);
   };
 
   return (
     <section className="create-exam-modal">
       <form onSubmit={handleSubmit} onChange={handleChange}>
-        <Input.withLabel for="name" label="Name" />
+        <Input.withLabel for="name" label="Name" autoFocus={true} />
         <Input.dropDownWithLabel
           for="subject"
           title="Subject"
@@ -70,6 +76,6 @@ const mapStateToProps = state => {
 export default withRouter(
   connect(
     mapStateToProps,
-    { clearModal, saveExam }
+    { clearModal, toggleModalStatus, saveExam }
   )(CreateExam)
 );

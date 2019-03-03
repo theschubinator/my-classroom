@@ -6,6 +6,7 @@ import './buttons.scss';
 const XLargeButton = props => {
   return (
     <button
+      type="button"
       className={`btn btn-xlarge ${props.className}`}
       onClick={props.onClick}
     >
