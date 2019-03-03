@@ -40,14 +40,21 @@ const CreateExam = props => {
         <Input.dropDownWithLabel
           for="subject"
           title="Subject"
-          options={props.options}
+          options={[
+            { value: 'Math' },
+            { value: 'Science' },
+            { value: 'Algebra' },
+            { value: 'Language' }
+          ]}
         />
-        <Button.normal
-          className="btn cancel-btn"
-          name="Cancel"
-          onClick={handleCancel}
-        />
-        <Input.submitButton />
+        <div className="buttons">
+          <Button.normal
+            className="btn cancel-btn"
+            name="Cancel"
+            onClick={handleCancel}
+          />
+          <Input.submitButton />
+        </div>
       </form>
     </section>
   );

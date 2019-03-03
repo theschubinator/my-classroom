@@ -11,7 +11,10 @@ const InputWithLabel = props => {
   };
 
   return (
-    <div data-testid="input-with-label" className={`input ${props.className}`}>
+    <div
+      data-testid="input-with-label"
+      className={`input-with-label ${props.className}`}
+    >
       <label htmlFor={props.for}>{props.label}</label>
       <input id={props.for} value={value} onChange={handleChange} />
     </div>

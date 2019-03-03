@@ -8,6 +8,7 @@
   height: 100vh;
   font-size: 1.5rem;
   background-color: var(--light-shadow);
+  transition: all 0.4s;
 
   .modal-container {
     position: absolute;
@@ -16,6 +17,7 @@
     width: 75%;
     max-width: 1024px;
     padding: var(--modal-padding);
+    padding-top: 0;
     background-color: var(--white);
     box-shadow: 0 2rem 4rem var(--shadow);
     border-radius: 3px;
@@ -26,6 +28,7 @@
       width: calc(100% + var(--modal-padding) * 2);
       margin-left: -1.5rem;
       text-align: center;
+      padding-top: var(--modal-padding);
       padding-bottom: var(--modal-padding);
       margin-bottom: var(--modal-padding);
 
@@ -42,6 +45,7 @@
 
   &.active {
     z-index: 999999999;
+    opacity: 1;
 
     & ~ * {
       filter: blur(2px);
@@ -53,6 +57,7 @@
   }
 
   &.inactive {
+    opacity: 0;
     z-index: -999999999;
     .modal-container {
       transform: translate(-50%, -50%) scale(0);

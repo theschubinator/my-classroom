@@ -1,2 +1,48 @@
+.modal-container {
+  width: 35% !important;
+
+  header {
+    background-color: var(--primary-color);
+    color: var(--white);
+
+    .close-btn {
+      display: none;
+    }
+  }
+}
+
 .create-exam-modal {
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+
+  form {
+    & > * {
+      margin-bottom: 2rem;
+    }
+
+    input,
+    select {
+      font-size: 2.5rem;
+      width: 30rem;
+    }
+
+    .submit-btn,
+    .cancel-btn {
+      font-size: 2rem;
+      width: 13rem;
+      padding: 1rem;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .input-with-label,
+    .drop-down-with-label {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
 }

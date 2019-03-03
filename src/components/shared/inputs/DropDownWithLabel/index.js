@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
+import './index.scss';
+
 const DropDown = props => {
   const [value, setValue] = useState('');
 
@@ -26,9 +28,7 @@ const DropDown = props => {
     <div className="drop-down-with-label">
       <label htmlFor={props.for}>{props.title}</label>
       <select value={value} id={props.for} onChange={handleChange}>
-        <option disabled value="">
-          -
-        </option>
+        <option value="">-</option>
         {renderOptions()}
       </select>
     </div>
