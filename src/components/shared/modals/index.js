@@ -8,8 +8,6 @@ import { getModalData } from './modalMap';
 import './index.scss';
 
 export const Modal = props => {
-  const { title, Component } = getModalData(props.modal);
-
   const renderComponent = () => (
     <React.Fragment>
       <header>
@@ -20,30 +18,36 @@ export const Modal = props => {
         >
           X
         </span>
-        <h1>{title}</h1>
+        <h1>{props.title}</h1>
       </header>
-      <Component className="modal" />
+      <props.Component className="modal" />
     </React.Fragment>
   );
 
-  const classStatus = props.modal && Component ? 'active' : 'inactive';
+  const classStatus = props.Component ? 'active' : 'inactive';
 
   return (
     <div data-testid="modal" className={`modal ${classStatus}`}>
       <div className="modal-container">
-        {props.modal && Component && renderComponent()}
+        {props.Component && renderComponent()}
       </div>
     </div>
   );
 };
 
 Modal.propTypes = {
-  modal: PropTypes.string.isRequired
+  title: PropTypes.string,
+  Component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]).isRequired
 };
 
-const mapStateToProps = state => ({
-  modal: state.app.modal
-});
+const mapStateToProps = state => {
+  const { title, Component } = getModalData(state.app.modal);
+
+  return {
+    title,
+    Component
+  };
+};
 
 export default connect(
   mapStateToProps,

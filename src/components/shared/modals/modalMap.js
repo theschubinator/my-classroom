@@ -12,7 +12,7 @@ export const getModalData = modalType => {
   const modal = modalMap[modalType];
   if (modal) return modal;
 
-  return { title: '', Component: null };
+  return { title: '', Component: '' };
 };
 
 export const modalMap = {

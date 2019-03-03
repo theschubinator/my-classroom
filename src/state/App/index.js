@@ -2,16 +2,14 @@ import t from 'tcomb';
 
 const App = t.struct(
   {
-    modal: t.String,
-    modalStatus: t.String
+    modal: t.String
   },
   { name: 'AppState', strict: true }
 );
 
 export const getDefaultState = () =>
   App({
-    modal: '',
-    modalStatus: 'inactive'
+    modal: ''
   });
 
 export default App;
