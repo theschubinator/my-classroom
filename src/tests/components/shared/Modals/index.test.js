@@ -9,27 +9,30 @@ import { mockComponent, renderWithRedux } from '../../../testUtils';
 const chance = new Chance();
 
 describe('Given Modal', () => {
-  const initialState = {
-    app: {
-      modal: chance.string()
-    }
-  };
-
   describe('and the modal is inactive', () => {
     it('should be hidden with the className of inactive', () => {
-      const { container, queryByText } = renderWithRedux(<Modal />);
+      const { container } = renderWithRedux(<Modal />);
 
       const inactiveModal = container.getElementsByClassName('inactive')[0];
       expect(inactiveModal).toBeInTheDocument();
-      expect(queryByText(initialState.app.modal)).not.toBeInTheDocument();
     });
   });
 
   describe('and the modal is active', () => {
-    ModalMap.getModalData = jest.fn().mockReturnValue({
-      title: initialState.app.modal,
-      Component: mockComponent
+    const initialState = {
+      app: {
+        modal: chance.string()
+      }
+    };
+
+    beforeEach(() => {
+      ModalMap.getModalData = jest.fn().mockReturnValue({
+        title: initialState.app.modal,
+        Component: mockComponent()
+      });
     });
+
+    afterEach(() => {});
 
     it('should render the correct modal type with the className of active', () => {
       const { container, queryByText, queryByTestId } = renderWithRedux(
@@ -47,27 +50,15 @@ describe('Given Modal', () => {
     });
 
     it('should be able to close the active modal by clicking the close button', () => {
-      const {
-        container,
-        queryByText,
-        getByTestId,
-        queryByTestId
-      } = renderWithRedux(<Modal />, {
+      const { getByTestId, store } = renderWithRedux(<Modal />, {
         initialState
       });
 
-      const activeModal = container.getElementsByClassName('active')[0];
-      expect(activeModal).toBeInTheDocument();
-
-      expect(queryByText(initialState.app.modal)).toBeInTheDocument();
-      expect(queryByTestId('mock-component')).toBeInTheDocument();
+      expect(store.getState().app.modal).toEqual(initialState.app.modal);
 
       fireEvent.click(getByTestId('close-btn'));
 
-      const inactiveModal = container.getElementsByClassName('inactive')[0];
-      expect(inactiveModal).toBeInTheDocument();
-      expect(queryByText(initialState.app.modal)).not.toBeInTheDocument();
-      expect(queryByTestId('mock-component')).not.toBeInTheDocument();
+      expect(store.getState().app.modal).toEqual('');
     });
   });
 });

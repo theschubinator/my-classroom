@@ -17,7 +17,7 @@ describe('Given ModalMap', () => {
 
   describe('and the getModalData function', () => {
     it('should return an empty object if there is no modalType match', () => {
-      const expectedModal = { title: '', Component: null };
+      const expectedModal = { title: '', Component: '' };
       expect(getModalData('')).toEqual(expectedModal);
     });
 

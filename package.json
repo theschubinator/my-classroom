@@ -1,6 +1,7 @@
 {
   "name": "my-classroom",
   "jest": {
+    "resetMocks": true,
     "collectCoverageFrom": [
       "**/src/**/*.{js}",
       "!**/src/*.{js}"

@@ -40,12 +40,7 @@ const CreateExam = props => {
         <Input.dropDownWithLabel
           for="subject"
           title="Subject"
-          options={[
-            { value: 'Math' },
-            { value: 'Science' },
-            { value: 'Algebra' },
-            { value: 'Language' }
-          ]}
+          options={props.options}
         />
         <div className="buttons">
           <Button.normal
