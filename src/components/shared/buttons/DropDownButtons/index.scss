@@ -1,13 +1,15 @@
+@import 'styles/variables/index';
+
 .drop-down-btns {
   position: relative;
   text-align: center;
   width: 10rem;
   font-size: inherit;
-  padding: 0.5rem;
-  outline: 1px solid var(--black);
+  padding: $button-padding;
+  outline: $outline-default;
 
   &.open {
-    background-color: var(--primary-color-dark);
+    background-color: $primary-color-dark;
     box-shadow: none;
     .btn-options {
       clip-path: inset(0 0 0 0);
@@ -15,8 +17,8 @@
   }
 
   &.closed {
-    background-color: var(--primary-color);
-    box-shadow: 0 0 1.75rem var(--shadow);
+    background-color: $primary-color;
+    box-shadow: $box-shadow;
     .btn-options {
       clip-path: inset(0 0 100% 0);
     }
@@ -29,23 +31,23 @@
     position: absolute;
     top: 36px;
     left: -1px;
-    border-left: 1px solid var(--black);
-    border-right: 1px solid var(--black);
-    border-bottom: 1.5px solid var(--black);
+    border-left: $outline-default;
+    border-right: $outline-default;
+    border-bottom: $outline-default;
     border-bottom-left-radius: 5px 5px;
     border-bottom-right-radius: 5px 5px;
     transition: clip-path 0.3s;
     transition-timing-function: cubic-bezier(0.52, 0.01, 0.13, 0.99);
 
     button {
-      background-color: var(--gray);
+      background-color: $gray;
       border: none;
       padding: 0.4rem 0;
-      transition: all 0.2s;
+      transition: $transition-default;
 
       &:hover {
-        background-color: var(--primary-color-light);
-        color: var(--white);
+        background-color: $primary-color-light;
+        color: $white;
       }
 
       &:last-child {
@@ -60,10 +62,10 @@
 
 .navbar-drop-down-btns {
   &.closed {
-    background-color: var(--secondary-color-light);
+    background-color: $secondary-color-light;
   }
 
   &.open {
-    background-color: var(--secondary-color);
+    background-color: $secondary-color;
   }
 }

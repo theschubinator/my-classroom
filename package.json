@@ -42,6 +42,7 @@
     "tcomb": "^3.2.29"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "node-sass": "^4.11.0",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
@@ -55,9 +56,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --colors",
     "eject": "react-scripts eject",
-    "coverage": "react-scripts test --coverage",
+    "coverage": "react-scripts test --coverage --colors",
     "semantic-release": "semantic-release"
   }
 }

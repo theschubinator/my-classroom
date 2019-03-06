@@ -1,9 +1,11 @@
+@import 'styles/variables/index';
+
 .modal-container {
   width: 35% !important;
 
   header {
-    background-color: var(--primary-color);
-    color: var(--white);
+    background-color: $primary-color;
+    color: $white;
 
     .close-btn {
       display: none;
@@ -31,7 +33,6 @@
     .cancel-btn {
       font-size: 2rem;
       width: 13rem;
-      padding: 1rem;
     }
 
     .buttons {

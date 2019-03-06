@@ -27,11 +27,9 @@ describe('Given Modal', () => {
     beforeEach(() => {
       ModalMap.getModalData = jest.fn().mockReturnValue({
         title: initialState.app.modal.type,
-        Component: mockComponent()
+        Component: mockComponent
       });
     });
-
-    afterEach(() => {});
 
     it('should render the correct modal type with the className of active', () => {
       const { container, queryByText, queryByTestId } = renderWithRedux(

@@ -1,19 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import CreateExam from './teacher/CreateExam';
-import Modal from './shared/modals';
-import NavHeader from './NavHeader';
+import Router from './Router';
+import UserLoaderConnector from './UserLoaderConnector';
 
 const App = props => {
   return (
-    <Router>
-      <main className="App">
-        <Modal />
-        <NavHeader />
-        <Route exact path="/teacher/exam/new" component={CreateExam} />
-      </main>
-    </Router>
+    <UserLoaderConnector>
+      <Router />
+    </UserLoaderConnector>
   );
 };
 

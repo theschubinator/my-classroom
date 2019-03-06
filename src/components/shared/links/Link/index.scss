@@ -1,3 +1,5 @@
+@import 'styles/variables/index';
+
 .link a {
   position: relative;
   color: inherit;
@@ -10,10 +12,10 @@
     height: 1.5px;
     bottom: -4px;
     left: 0;
-    background-color: var(--secondary-color);
+    background-color: $secondary-color;
     visibility: hidden;
     transform: scaleX(0);
-    transition: all 0.2s ease-in-out 0s;
+    transition: $transition-default;
   }
 
   &:hover {

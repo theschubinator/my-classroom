@@ -1,3 +1,5 @@
+@import 'styles/variables/index';
+
 .drop-down-with-label {
   display: flex;
   align-items: center;
@@ -5,18 +7,18 @@
 
   select {
     margin-left: 1rem;
-    padding: 0.2rem 1rem;
-    border: inset 2.25px var(--gray);
-    border-radius: 20px;
+    padding: $input-padding;
+    border: $input-border;
+    border-radius: $border-radius;
     min-width: 10rem;
 
     &:focus {
       outline: none;
-      background-color: var(--highlight);
+      background-color: $input-focus-background-color;
     }
 
     option {
-      background-color: var(--white);
+      background-color: $white;
     }
   }
 }

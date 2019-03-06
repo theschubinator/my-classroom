@@ -1,0 +1,18 @@
+//common
+$border-radius: 20px;
+$box-shadow: 1px 2px 1.5rem $shadow;
+$outline-default: 1px solid $black;
+$transition-default: all 0.2s ease-in-out;
+
+//buttons
+$button-padding: 0.5rem 1rem;
+$button-starting-position: translateY(-2px);
+$button-ending-position: translateY(0);
+
+//input
+$input-padding: 0.4rem 1.6rem;
+$input-border: inset 2.25px $gray;
+$input-focus-background-color: $highlight;
+
+//modal
+$modal-padding: 1.5rem;

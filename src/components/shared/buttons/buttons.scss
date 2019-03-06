@@ -1,11 +1,13 @@
+@import 'styles/variables/index';
+
 .btn {
   font-size: 2rem;
-  padding: 0.5rem 1.25rem;
-  border-radius: 2rem;
+  padding: $button-padding;
+  border-radius: $border-radius;
   text-decoration: none;
   border: none;
-  box-shadow: 1px 2px 1.5rem var(--shadow);
-  transform: translateY(-2px);
+  box-shadow: $box-shadow;
+  transform: $button-starting-position;
   transition: all 0.1s;
 
   &:focus {
@@ -13,8 +15,8 @@
   }
 
   &:active {
-    transform: translateY(0);
-    box-shadow: 1px 1px 0.75rem var(--shadow);
+    transform: $button-ending-position;
+    box-shadow: $box-shadow;
   }
 
   &.btn-small {
@@ -31,19 +33,19 @@
 }
 
 .submit-btn {
-  background-color: var(--submit-green-light);
+  background-color: $submit-green-light;
   color: white;
 
   &:hover {
-    background-color: var(--submit-green-dark);
+    background-color: $submit-green-dark;
   }
 }
 
 .cancel-btn {
-  background-color: var(--cancel-red-light);
+  background-color: $cancel-red-light;
   color: white;
 
   &:hover {
-    background-color: var(--cancel-red-dark);
+    background-color: $cancel-red-dark;
   }
 }

@@ -8,10 +8,4 @@ const Class = t.struct(
   { name: 'Class', strict: true }
 );
 
-export const getDefaultState = () =>
-  Class({
-    name: '',
-    subject: ''
-  });
-
 export default Class;

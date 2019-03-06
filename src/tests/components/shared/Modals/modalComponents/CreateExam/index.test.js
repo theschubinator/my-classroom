@@ -6,8 +6,8 @@ import {
   mockEvent,
   mockUrl,
   renderWithReduxAndRouter,
-  mockClassState,
-  mockModalState
+  mockModalState,
+  mockClassesState
 } from '../../../../../testUtils';
 
 describe('Given CreatExam Modal', () => {
@@ -15,13 +15,7 @@ describe('Given CreatExam Modal', () => {
     app: {
       modal: mockModalState()
     },
-    classes: [
-      mockClassState(),
-      mockClassState(),
-      mockClassState(),
-      mockClassState(),
-      mockClassState()
-    ]
+    classes: mockClassesState()
   };
 
   describe('and performing actions that update the form', () => {
@@ -42,11 +36,7 @@ describe('Given CreatExam Modal', () => {
         initialState
       });
 
-      const event = {
-        target: {
-          value: initialState.classes[0].subject
-        }
-      };
+      const event = mockEvent({ value: initialState.classes[0].subject });
 
       const dropDown = getByLabelText('Subject');
 
