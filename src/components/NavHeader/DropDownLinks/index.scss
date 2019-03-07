@@ -9,7 +9,7 @@
   outline: $outline-default;
 
   &.open {
-    background-color: $primary-color-dark;
+    background-color: $secondary-color;
     box-shadow: none;
     .btn-options {
       clip-path: inset(0 0 0 0);
@@ -17,7 +17,7 @@
   }
 
   &.closed {
-    background-color: $primary-color;
+    background-color: $secondary-color-light;
     box-shadow: $box-shadow;
     .btn-options {
       clip-path: inset(0 0 100% 0);
@@ -55,17 +55,5 @@
         border-bottom-right-radius: 3.5px 3.5px;
       }
     }
-  }
-}
-
-// INSTANCES
-
-.navbar-drop-down-btns {
-  &.closed {
-    background-color: $secondary-color-light;
-  }
-
-  &.open {
-    background-color: $secondary-color;
   }
 }

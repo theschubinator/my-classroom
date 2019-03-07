@@ -6,18 +6,14 @@ import { withRouter } from 'react-router-dom';
 import Input from '../../../inputs';
 import Button from '../../../buttons';
 import {
-  createObjectArrayFromStringArray as createOptionValues,
-  getSpecificItemsFromArrayOfObjects as getUniqueClassSubjects
-} from '../../../../../utils/helpers';
-import {
   clearModal,
   toggleModalStatus
 } from '../../../../../actions/actions-creator/app';
-import { saveExam } from '../../../../../actions/actions-creator/exam';
+import { saveClass } from '../../../../../actions/actions-creator/class';
 
 import './index.scss';
 
-const CreateExam = props => {
+const CreateClass = props => {
   const [form, setForm] = useState({ name: '', subject: '' });
 
   const handleChange = e => {
@@ -33,20 +29,16 @@ const CreateExam = props => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    props.saveExam(form);
+    props.saveClass(form);
     props.toggleModalStatus();
     setTimeout(props.clearModal, 1000);
   };
 
   return (
-    <section className="create-exam-modal">
+    <section className="create-class-modal">
       <form onSubmit={handleSubmit} onChange={handleChange}>
         <Input.withLabel for="name" label="Name" autoFocus={true} />
-        <Input.dropDownWithLabel
-          for="subject"
-          title="Subject"
-          options={props.options}
-        />
+        <Input.withLabel for="subject" label="Subject" autoFocus={true} />
         <div className="buttons">
           <Button.normal
             className="btn cancel-btn"
@@ -60,21 +52,14 @@ const CreateExam = props => {
   );
 };
 
-CreateExam.propTypes = {
+CreateClass.propTypes = {
   clearModal: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => {
-  const subjects = getUniqueClassSubjects(state.classes, 'subject');
-  const options = createOptionValues(subjects, 'value');
-
-  return { options };
-};
-
 export default withRouter(
   connect(
-    mapStateToProps,
-    { clearModal, toggleModalStatus, saveExam }
-  )(CreateExam)
+    null,
+    { clearModal, toggleModalStatus, saveClass }
+  )(CreateClass)
 );

@@ -1,15 +1,14 @@
 import React from 'react';
 
-import Buttons from '../shared/buttons';
+import DropDownLinks from './DropDownLinks';
 import Input from '../shared/inputs';
 import Link from '../shared/links';
 import { HistoryLinkTypes } from '../shared/links/HistoryLink';
-import { DropDownButtonTypes } from '../../utils/maps';
 
 import { FaSearch } from 'react-icons/fa';
 import './index.scss';
 
-const NavHeader = () => {
+const NavHeader = props => {
   return (
     <nav data-testid="nav-header">
       <ul>
@@ -27,10 +26,7 @@ const NavHeader = () => {
         </li>
 
         <li className="right-side">
-          <Buttons.dropDownButtons
-            className="navbar-drop-down-btns"
-            type={DropDownButtonTypes('USER_ACTIONS')}
-          />
+          <DropDownLinks />
           <Input.withLabel
             for="search"
             className="search svg"

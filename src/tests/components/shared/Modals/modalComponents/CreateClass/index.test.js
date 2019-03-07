@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent } from 'react-testing-library';
 
-import CreateExam from '../../../../../../components/shared/modals/modalComponents/CreateExam';
+import CreateClass from '../../../../../../components/shared/modals/modalComponents/CreateClass';
 import { getDefaultState as getDefaultModalState } from '../../../../../../state/App/modal';
 import {
   mockEvent,
@@ -19,8 +19,8 @@ describe('Given CreatExam Modal', () => {
   };
 
   describe('and performing actions that update the form', () => {
-    it('should contain a form that sets an exams name', () => {
-      const { getByLabelText } = renderWithReduxAndRouter(<CreateExam />);
+    it('should contain a form that sets a class name', () => {
+      const { getByLabelText } = renderWithReduxAndRouter(<CreateClass />);
 
       const event = mockEvent();
 
@@ -31,12 +31,12 @@ describe('Given CreatExam Modal', () => {
       expect(input.value).toBe(event.target.value);
     });
 
-    it('should contain a form that sets an exams subject', () => {
-      const { getByLabelText } = renderWithReduxAndRouter(<CreateExam />, {
+    it('should contain a form that sets an class subject', () => {
+      const { getByLabelText } = renderWithReduxAndRouter(<CreateClass />, {
         initialState
       });
 
-      const event = mockEvent({ value: initialState.classes[0].subject });
+      const event = mockEvent();
 
       const dropDown = getByLabelText('Subject');
 
@@ -49,7 +49,7 @@ describe('Given CreatExam Modal', () => {
   describe('and an action was perform that closes the modal', () => {
     it('closes the modal upon clicking cancel', () => {
       jest.useFakeTimers();
-      const { getByText, store } = renderWithReduxAndRouter(<CreateExam />, {
+      const { getByText, store } = renderWithReduxAndRouter(<CreateClass />, {
         initialState
       });
 
@@ -63,7 +63,7 @@ describe('Given CreatExam Modal', () => {
 
     it('closes the modal upon a successful submission', () => {
       jest.useFakeTimers();
-      const { getByValue, store } = renderWithReduxAndRouter(<CreateExam />, {
+      const { getByValue, store } = renderWithReduxAndRouter(<CreateClass />, {
         initialState
       });
 
