@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -36,15 +35,23 @@ const DropDownLinks = props => {
       <div className="btn-options">
         <button
           data-testid="button"
+          onClick={handleClick(ModalTypes('CREATE_CLASS'))}
+        >
+          Create Class
+        </button>
+
+        <button
+          data-testid="button"
           onClick={handleClick(ModalTypes('CREATE_EXAM'))}
         >
           Create Exam
         </button>
+
         <button
           data-testid="button"
-          onClick={handleClick(ModalTypes('CREATE_CLASS'))}
+          onClick={handleClick(ModalTypes('CREATE_QUIZ'))}
         >
-          Create Class
+          Create Quiz
         </button>
       </div>
     </div>

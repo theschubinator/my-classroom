@@ -6,4 +6,6 @@ export const MODAL_CLEAR = 'MODAL_CLEAR';
 export const MODAL_LOAD_TYPE = 'MODAL_LOAD_TYPE';
 export const MODAL_TOGGLE_STATUS = 'MODAL_TOGGLE_STATUS';
 
+export const QUIZ_ADD = 'QUIZ_ADD';
+
 export const USER_LOAD = 'USER_LOAD';
