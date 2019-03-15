@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 
 import rootReducer from './reducers';
-import config from '../config';
+import config from './config';
 
 import './styles/index.scss';
 
