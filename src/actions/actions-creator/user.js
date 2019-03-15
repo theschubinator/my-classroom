@@ -1,13 +1,11 @@
 import * as types from '../action-list';
+import axios from 'axios';
 
-const mockUser = {
-  id: '123',
-  name: 'Andrew Schubert'
-};
+export const loadUser = () => async dispatch => {
+  const { data } = await axios.get('/current-user');
 
-export const loadUser = () => {
-  return {
-    user: mockUser,
+  return dispatch({
+    user: data,
     type: types.USER_LOAD
-  };
+  });
 };
