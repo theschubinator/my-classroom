@@ -17,6 +17,8 @@ const HistoryLink = props => {
     props.history.push(props.route);
   };
 
+  console.log('I am in the HistoryLink');
+
   const buttonLink = () => <button onClick={handleClick}>{props.title}</button>;
 
   const imgLink = () => (

@@ -13,6 +13,7 @@ import UserLoaderConnector from '../../components/UserLoaderConnector';
 jest.mock('axios');
 
 describe('Given UserLoaderConnector', () => {
+  console.log('start of UserLoaderConnector');
   const props = {
     children: mockComponent()
   };
@@ -37,6 +38,7 @@ describe('Given UserLoaderConnector', () => {
   });
 
   it('should render its children', () => {
+    console.log('render the children');
     const { queryByTestId } = renderWithRedux(
       <UserLoaderConnector {...props} />
     );
