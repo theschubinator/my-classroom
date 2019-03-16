@@ -2,7 +2,7 @@ import Chance from 'chance';
 import React from 'react';
 import { render } from 'react-testing-library';
 
-import SubmitInput from '../../../../../components/shared/inputs/submitInput';
+import SubmitInput from '../../../../../components/shared/inputs/SubmitInput';
 
 const chance = new Chance();
 

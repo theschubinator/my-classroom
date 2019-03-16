@@ -19,6 +19,8 @@ describe('Given UserLoaderConnector', () => {
 
   describe('and its attempting to load a user', () => {
     it('should load a user', async () => {
+      console.log(mockAxiosResponse(mockUser()));
+
       const axiosResponse = mockAxiosResponse(mockUser());
 
       axios.get.mockResolvedValue(axiosResponse);
