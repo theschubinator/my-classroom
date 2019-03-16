@@ -33,6 +33,7 @@ const HistoryLink = props => {
   );
 
   const findLinkToRender = () => {
+    console.log('i am rendering the findLink');
     return props.type === 'btn' ? buttonLink() : imgLink();
   };
 

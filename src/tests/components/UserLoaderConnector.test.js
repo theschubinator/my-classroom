@@ -31,8 +31,10 @@ describe('Given UserLoaderConnector', () => {
       expect(store.getState().app.loadCounter.count).toEqual(1);
 
       await wait(() => {
+        console.log('i am waiting in the async call');
         expect(store.getState().user).toEqual(axiosResponse.data);
         expect(store.getState().app.loadCounter.count).toEqual(0);
+        console.log('i am at the end of the async');
       });
     });
   });

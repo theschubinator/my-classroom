@@ -42,6 +42,7 @@ describe('Given HistoryLink', () => {
 
       expect(queryByTestId(`link-${props.type}`)).toBeInTheDocument();
 
+      console.log('at the end of history link');
       expect(history.location.pathname).toBe('/');
       fireEvent.click(queryByTestId(`link-${props.type}`));
       expect(history.location.pathname).toBe(props.route);
