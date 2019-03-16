@@ -17,8 +17,6 @@ const HistoryLink = props => {
     props.history.push(props.route);
   };
 
-  console.log('I am in the HistoryLink');
-
   const buttonLink = () => <button onClick={handleClick}>{props.title}</button>;
 
   const imgLink = () => (
@@ -33,7 +31,6 @@ const HistoryLink = props => {
   );
 
   const findLinkToRender = () => {
-    console.log('i am rendering the findLink');
     return props.type === 'btn' ? buttonLink() : imgLink();
   };
 

@@ -8,7 +8,6 @@ import {
 import { loadUser } from '../actions/actions-creator/user';
 
 const UserLoaderConnector = props => {
-  console.log('In UserLoaderConnector');
   const asyncLoadUser = async () => {
     props.addCountToLoader();
     await props.loadUser();
