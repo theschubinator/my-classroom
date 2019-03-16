@@ -6,7 +6,9 @@ import UserLoaderConnector from './UserLoaderConnector';
 const App = props => {
   return (
     <UserLoaderConnector>
+      {/* <LoadingIndicator> */}
       <Router />
+      {/* </LoadingIndicator> */}
     </UserLoaderConnector>
   );
 };

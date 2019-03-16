@@ -3,6 +3,7 @@ import React from 'react';
 
 import Class from '../../state/classes/class';
 import Modal from '../../state/App/modal';
+import User from '../../state/user';
 
 const chance = new Chance();
 
@@ -37,4 +38,18 @@ export const mockClassState = overRides => {
 
 export const mockClassesState = (iterations = 5) => {
   return chance.unique(mockClassState, iterations);
+};
+
+export const mockUser = overRides => {
+  return User({
+    id: chance.string(),
+    name: chance.string(),
+    ...overRides
+  });
+};
+
+export const mockAxiosResponse = response => {
+  return {
+    data: response
+  };
 };

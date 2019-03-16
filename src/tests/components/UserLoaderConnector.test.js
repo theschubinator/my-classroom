@@ -2,8 +2,13 @@ import React from 'react';
 import axios from 'axios';
 import { wait } from 'react-testing-library';
 
+import {
+  mockComponent,
+  mockUser,
+  mockAxiosResponse,
+  renderWithRedux
+} from '../testUtils';
 import UserLoaderConnector from '../../components/UserLoaderConnector';
-import { renderWithRedux, mockComponent } from '../testUtils';
 
 jest.mock('axios');
 
@@ -12,21 +17,21 @@ describe('Given UserLoaderConnector', () => {
     children: mockComponent()
   };
 
-  //   it('should load a user', async () => {
-  //     const mockUser = { data: { id: '123', name: 'Andrew' } };
+  describe('and its attempting to load a user', () => {
+    it('should load a user', async () => {
+      const axiosResponse = mockAxiosResponse(mockUser());
 
-  //     axios.get.mockResolvedValue(mockUser);
+      axios.get.mockResolvedValue(axiosResponse);
 
-  //     const { store } = renderWithRedux(<UserLoaderConnector {...props} />);
+      const { store } = renderWithRedux(<UserLoaderConnector {...props} />);
 
-  //     await wait(() => {
-  //       expect(store.getState().user).toEqual(mockUser.data);
-  //     });
-  //   });
+      expect(store.getState().app.loadCounter.count).toEqual(1);
 
-  it('should load a user', () => {
-    const { store } = renderWithRedux(<UserLoaderConnector {...props} />);
-    expect(store.getState().user.id).not.toBe('');
+      await wait(() => {
+        expect(store.getState().user).toEqual(axiosResponse.data);
+        expect(store.getState().app.loadCounter.count).toEqual(0);
+      });
+    });
   });
 
   it('should render its children', () => {

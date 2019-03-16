@@ -10,3 +10,9 @@ export const clearModal = () => ({
 });
 
 export const toggleModalStatus = () => ({ type: types.MODAL_TOGGLE_STATUS });
+
+export const addCountToLoader = () => ({ type: types.LOADER_COUNTER_ADD });
+
+export const removeCountFromLoader = () => ({
+  type: types.LOADER_COUNTER_REMOVE
+});

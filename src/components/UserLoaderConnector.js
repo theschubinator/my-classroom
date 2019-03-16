@@ -1,11 +1,21 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
 
+import {
+  addCountToLoader,
+  removeCountFromLoader
+} from '../actions/actions-creator/app';
 import { loadUser } from '../actions/actions-creator/user';
 
 const UserLoaderConnector = props => {
+  const asyncLoadUser = async () => {
+    props.addCountToLoader();
+    await props.loadUser();
+    props.removeCountFromLoader();
+  };
+
   useEffect(() => {
-    props.loadUser();
+    asyncLoadUser();
   });
 
   return props.children;
@@ -13,5 +23,5 @@ const UserLoaderConnector = props => {
 
 export default connect(
   null,
-  { loadUser }
+  { addCountToLoader, removeCountFromLoader, loadUser }
 )(UserLoaderConnector);
